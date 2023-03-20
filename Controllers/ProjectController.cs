@@ -12,17 +12,42 @@ namespace re2023_api.Controllers
     public class ProjectController : Controller
     {
         [HttpGet]
-        public IActionResult Get(int id) {
-            var project = new Project 
-            { 
-                Id = 1,
-                StatusId = 1,
-                Name = "Project 1",
-                Description = "This is project 1",
-                OwnerId = 1,
-                CreatedDate = DateTime.Now,
-                UpdatedDate = DateTime.Now,
+        public IActionResult Get(int id)
+        {
+            var project = new List<Project>
+            {
+                new Project{
+                    Id = 1,
+                    StatusId = 1,
+                    Name = "1315 Blair Lane, Hoffman Estates, IL 60169",
+                    Description = "We are selling our beautiful home in the suburbs.",
+                    OwnerId = 1,
+                    CreatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Now,
+                    Image = "house.PNG"
+                },
+                new Project{
+                    Id = 2,
+                    StatusId = 1,
+                    Name = "900 N. Kingsbury St. # 821, Chicago, IL 60610",
+                    Description = "We are renting out our beautiful condo in downtown Chicago.",
+                    OwnerId = 1,
+                    CreatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Now,
+                    Image = "condo.PNG"
+                },
+                new Project{
+                    Id = 3,
+                    StatusId = 2,
+                    Name = "2208 Mellogold Way, Corona, CA 60610",
+                    Description = "We are putting an offer to buy this beautiful home in Corona CA.",
+                    OwnerId = 1,
+                    CreatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Now,
+                    Image = "houseca.PNG"
+                }
             };
+
             var jsonData = JsonConvert.SerializeObject(project);
             return Ok(jsonData);
         }
